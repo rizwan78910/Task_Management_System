@@ -51,35 +51,3 @@ def delete_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     task.delete()
     return redirect('task_list')  # Redirect after deletion
-
-
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib import messages
-from .forms import UserCreateForm
-from .models import CustomUser
-
-# Admin check function
-def is_admin(user):
-    return user.is_authenticated and user.role == 'admin'
-
-@login_required
-@user_passes_test(is_admin)
-def create_user(request):
-    if request.method == 'POST':
-        form = UserCreateForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            messages.success(request, f'User {user.username} created successfully!')
-            return redirect('user_list')  # Redirect to user list page
-    else:
-        form = UserCreateForm()
-    
-    return render(request, 'admin/create_user.html', {'form': form})
-
-
-@login_required
-@user_passes_test(is_admin)
-def user_list(request):
-    users = CustomUser.objects.all()
-    return render(request, 'admin/user_list.html', {'users': users})

@@ -1,23 +1,11 @@
-from django.contrib import admin
-from django.urls import path, include
-from django.shortcuts import redirect
-from django.contrib.auth import views as auth_views
-
-# Function to redirect root URL to 'login/'
-def redirect_to_login(request):
-    return redirect('login')
-
-from django.contrib.auth import logout
-
-def custom_logout(request):
-    logout(request)
-    return redirect('login')
-
+from django.contrib.auth.views import LoginView  # Add this import
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', redirect_to_login, name='home'),  # Redirect root URL to 'login/'
-    path('admin/', admin.site.urls),
-    path('tasks/', include('tasks.urls')),
-    path('login/', auth_views.LoginView.as_view(template_name='tasks/login.html'), name='login'),
-    path('logout/', custom_logout, name='logout'),
+    path('login/', LoginView.as_view(), name='login'),  # Login view
+    path('', views.task_list, name='task_list'),
+    path('create/', views.create_task, name='create_task'),
+    path('edit/<int:task_id>/', views.edit_task, name='edit_task'),
+    path('delete/<int:task_id>/', views.delete_task, name='delete_task'),
 ]

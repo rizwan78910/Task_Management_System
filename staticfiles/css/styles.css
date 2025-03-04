@@ -1,0 +1,125 @@
+/* General styles */
+
+/* Center title on the login page */
+.center-title {
+    justify-content: center !important; /* Ensure full centering */
+}
+
+.center-title h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bfcef5;
+    
+}
+
+/* Header styling */
+header {
+    background-color: #000000; /* Dark Burgundy */
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual appeal */
+    text-align: center;
+    
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #cd1814; /* Bright Red for hover effect */
+}
+
+/* Footer styling */
+footer {
+    background-color: #130e0c; /* Dark Gray */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for footer */
+}
+
+.footer-container p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.footer-container p:first-child {
+    font-weight: bold;
+}
+
+footer a {
+    color: #cd1814; /* Bright Red for links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+}
+

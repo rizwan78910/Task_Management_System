@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}  <!-- Load static files -->
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+</head>
+<body>
+    <div class="edit-task-container">
+        <h1>Edit Task</h1>
+        <form method="post" class="edit-task-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="edit-task-btn">Update Task</button>
+        </form>
+        <a href="{% url 'task_list' %}" class="back-to-list">Back to Task List</a>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+
+{% block page_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/edit_task.css' %}">
+{% endblock %}

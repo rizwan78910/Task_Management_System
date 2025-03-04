@@ -1,0 +1,58 @@
+/* Styles specific to Create Task page */
+.create-task-container {
+    font-family: Arial, sans-serif;
+    background-color:  #bfcef5;
+    padding: 20px;
+    border-style: groove;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+    width: 320px;
+    margin: 50px auto;
+}
+
+/* Form Styling */
+.create-task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.create-task-form input,
+.create-task-form select,
+.create-task-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+.create-task-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-task-btn:hover {
+    background-color: #218838;
+}
+
+/* Back Link */
+.back-to-list {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    text-align: center;
+    
+}
+
+.back-to-list:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Task Management System{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {% block page_css %}{% endblock %}
+    <style>
+        header h1 {
+            color:rgb(255, 255, 255); /* Custom Color for Task List Header */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container {% if request.path == '/login/' %}center-title{% endif %}">
+            <h1>Task Management System</h1>
+            {% if not request.path == '/login/' %}
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'task_list' %}">Task List</a></li>
+                        <li><a href="{% url 'create_task' %}">Create Task</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </header>
+    
+    
+    
+    
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Task Management System. All rights reserved.</p>
+            <p>Developed by Muhammad Rizwan</p>
+        </div>
+    </footer>
+</body>
+</html>

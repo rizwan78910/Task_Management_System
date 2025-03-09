@@ -1,6 +1,6 @@
 {% extends 'base_generic.html' %}
 
-{% load static %}  <!-- Load static files -->
+{% load static %} <!-- Load static files -->
 
 {% block page_css %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/task_list.css' %}">
@@ -13,7 +13,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task List</title>
-    
 </head>
 <body>
     <div class="container">
@@ -21,15 +20,15 @@
 
         {% if user.is_authenticated %}
             <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+            {% if user.is_superuser %}
             <a href="{% url 'create_task' %}"><button>Add New Task</button></a> <br><br>
+            {% endif %}
+            {% if user.is_superuser %}
+                <a href="{% url 'create_user' %}"><button>Add New User</button></a> <br><br>
+            {% endif %}
         {% else %}
             <a href="{% url 'login' %}">Login</a>
         {% endif %}
-
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button> <br>
-        </form>
 
         <!-- Filter Tasks -->
         <form method="GET" action="{% url 'task_list' %}">
@@ -52,6 +51,7 @@
                     <th>Priority</th>
                     <th>Due Date</th>
                     <th>Description</th>
+                    <th>Assigned To</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -63,6 +63,7 @@
                     <td>{{ task.priority }}</td>
                     <td>{{ task.due_date }}</td>
                     <td>{{ task.description }}</td>
+                    <td>{{ task.assigned_to.username|default:"Unassigned" }}</td>
                     <td class="task-actions">
                         <a href="{% url 'edit_task' task.id %}"><button class="btn-edit">Edit</button></a>
                         <a href="{% url 'delete_task' task.id %}" onclick="return confirm('Are you sure?');">
@@ -72,7 +73,7 @@
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="5">No tasks available.</td>
+                    <td colspan="7">No tasks available.</td>
                 </tr>
                 {% endfor %}
             </tbody>

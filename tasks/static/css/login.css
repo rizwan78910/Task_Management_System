@@ -4,17 +4,39 @@ body {
     background-color: #bfcef5;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Header and Footer Styling */
+header, footer {
+    background-color: #000000; /* Same background color for header and footer */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Footer Styling to Stick to the Bottom */
+footer {
+    margin-top: auto; /* Ensures footer sticks to the bottom */
+}
+
+/* Container for the whole content */
+.main-content {
+    flex: 1; /* Makes sure the content section takes up available space */
 }
 
 /* Login Container */
 .login-container {
     border-style: groove;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     margin: 100px auto;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color:  #bfcef5;
+    background-color: #bfcef5;
 }
 
 h2 {
@@ -25,7 +47,6 @@ h2 {
 /* Form Styling */
 .login-form .form-group {
     margin-bottom: 15px;
-    
 }
 
 .login-form .form-group input {
@@ -36,61 +57,86 @@ h2 {
     border: 1px solid #ccc;
 }
 
-/* Button Styling */
+/* Button Styling (Same for Login and Request Account) */
 .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
+    width: 100%; /* Make the button take full width of its parent container */
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color for both buttons */
     color: white;
     font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none !important; /* Prevent underline */
+    display: inline-block; /* Ensures it's inline */
+    margin: 10px 0;
+    border: none; /* Remove border */
+    outline: none; /* Remove focus outline */
 }
 
 .btn:hover {
     background-color: #0056b3;
 }
 
-/* Signup Link */
-.signup-link {
+/* Mobile Specific Styling */
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        margin-top: 60px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Very Small Screen Styles (Mobile Phones) */
+@media (max-width: 480px) {
+    .login-container {
+        width: 100%;
+        margin-top: 40px;
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 15px;
+    }
+}
+
+/* Centering Request Account Button */
+.request-account-container {
     text-align: center;
-    margin-top: 15px;
 }
 
-.signup-link a {
-    color: #007bff;
-    text-decoration: none;
+/* Extra Styling for Request Account Button */
+.request-account-container a {
+    width: auto; /* Same width as Login Button */
+    max-width: 100%; /* Prevent stretching */
+    padding: 10px 20px; /* Matching padding */
+    background-color: #007bff; /* Same blue color */
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    display: inline-block; /* Keeps the button in line with others */
+    margin-top: 10px;
+    text-decoration: none !important; /* No underline */
+    text-align: center;
 }
 
-.signup-link a:hover {
-    text-decoration: underline;
+.request-account-container a:hover {
+    background-color: #0056b3;
 }
 
-
-
-
-/* Style input fields with placeholder text */
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-/* Style placeholder text */
-input::placeholder {
-    color: #888;
-    font-style: italic;
-}
-
-/* Error message styling */
-.alert-danger {
-    background-color: #ffdddd;
-    color: #8b0000;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+/* Centering Login Button without Increasing Width */
+.login-form button {
+    width: auto; /* Ensure the button width is based on content */
+    margin: 10px auto; /* Center the button horizontally */
+    display: block; /* Make the button a block element to center it */
+    text-align: center; /* Ensure the text inside the button is centered */
 }

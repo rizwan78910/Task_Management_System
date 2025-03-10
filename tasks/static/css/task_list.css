@@ -1,37 +1,60 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bfcef5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
 
-
+/* Container Styling */
 .container {
     width: 80%;
     margin: 20px auto;
-    background:  #bfcef5;
+    background: #bfcef5;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border-style: groove;
+    flex: 1; /* Ensure the container takes available space */
 }
 
-h1 {
-    text-align: center;
-    color: #000000;
-}
-h2 {
+/* Title Styling */
+h1, h2 {
     text-align: center;
     color: #000000;
 }
 
+/* Header and Footer Styling */
+header, footer {
+    background-color: #000000; /* Dark Burgundy */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Footer Styling to Stick to the Bottom */
+footer {
+    background-color: #130e0c; /* Dark Gray */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Button Styling */
 button, .btn {
-    
     padding: 10px 15px;
-    border-radius: 0%;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
     font-size: 14px;
 }
 
 button {
     background-color: #007bff;
     color: white;
-    
 }
 
 button:hover {
@@ -54,6 +77,7 @@ button:hover {
     background-color: #218838;
 }
 
+/* Table Styling */
 table {
     text-align: center;
     width: 100%;
@@ -80,8 +104,5 @@ tr:hover {
 }
 
 .task-actions {
-  
     gap: 0px;
 }
-
-

@@ -13,7 +13,10 @@ def task_list(request):
     status_filter = request.GET.get('status')
     priority_filter = request.GET.get('priority')
 
-    tasks = Task.objects.all()
+    if request.user.is_superuser:
+        tasks = Task.objects.all()  # Admin sees all tasks
+    else:
+        tasks = Task.objects.filter(assigned_to=request.user)  # Users see only their tasks
 
     if status_filter:
         tasks = tasks.filter(status=status_filter)

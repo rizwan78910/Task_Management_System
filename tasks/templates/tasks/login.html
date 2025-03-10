@@ -34,10 +34,16 @@
       </div>
   
       <button type="submit" class="btn btn-primary">Login</button>
-  </form>
-    
-    <p class="signup-link">Don't have an account? <a href="{% url 'request_account' %}">Request an account</a></p>
+    </form>
 
+    <!-- Centered Request an Account Section -->
+    <div class="request-account-container" style="text-align: center; margin-top: 20px;">
+      <h2>Request an Account</h2>
+      <p>If you don't have an account, you can request one by sending an email to the admin.</p>
+      <a href="mailto:s298951@uos.ac.uk?subject=Account%20Request&body=Full%20Name%3A%20%0AEmail%3A%20%0AReason%3A%20" class="btn btn-primary">
+        Request an Account
+      </a>
+    </div>
   </div>
 {% endblock %}
 

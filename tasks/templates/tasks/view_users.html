@@ -6,6 +6,7 @@
  <!-- tasks/templates/tasks/view_users.html -->
 <h2>User List</h2>
 <ul>
+    <form method="post" class="login-form" autocomplete="off">
     {% for user in users %}
         <li>{{ user.username }} - Email: {{ user.email }}</li>
     {% endfor %}

@@ -1,4 +1,13 @@
 /* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bfcef5;
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+}
 
 /* Center title on the login page */
 .center-title {
@@ -12,14 +21,6 @@
     font-weight: bold;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #bfcef5;
-    
-}
-
 /* Header styling */
 header {
     background-color: #000000; /* Dark Burgundy */
@@ -27,15 +28,12 @@ header {
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual appeal */
     text-align: center;
-    
-    
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
 }
 
 h1 {
@@ -73,10 +71,9 @@ footer {
     color: white;
     padding: 20px;
     text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for footer */
+    margin-top: auto; /* Ensures the footer sticks to the bottom */
+    width: 100%;
 }
 
 .footer-container p {
@@ -122,4 +119,3 @@ footer a:hover {
         font-size: 1em;
     }
 }
-

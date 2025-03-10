@@ -7,13 +7,17 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
+  <div class="create-task-container">
     <h1>Create New User</h1>
 
-    <form method="POST">
+    <form method="POST" class="create-task-form">
       {% csrf_token %}
+      
+      <!-- Display the form fields -->
       {{ form.as_p }}
-      <button type="submit">Create User</button>
+
+      <!-- Submit Button -->
+      <button type="submit" class="create-task-btn">Create User</button>
     </form>
   </div>
 {% endblock %}

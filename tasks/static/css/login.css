@@ -15,6 +15,8 @@ header, footer {
     color: white;
     padding: 10px;
     text-align: center;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in the element’s total width */
 }
 
 /* Footer Styling to Stick to the Bottom */
@@ -37,6 +39,7 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #bfcef5;
+    box-sizing: border-box; /* Ensures padding does not cause overflow */
 }
 
 h2 {
@@ -55,6 +58,7 @@ h2 {
     margin-top: 5px;
     border-radius: 4px;
     border: 1px solid #ccc;
+    box-sizing: border-box; /* Prevent overflow */
 }
 
 /* Button Styling (Same for Login and Request Account) */
